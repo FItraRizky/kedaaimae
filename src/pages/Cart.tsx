@@ -736,7 +736,7 @@ const Cart: React.FC = () => {
         }
 
         .cart-main {
-          background: linear-gradient(rgba(255, 248, 220, 0.95), rgba(245, 222, 179, 0.95)), url('https://picsum.photos/1000/600?random=19');
+          background: linear-gradient(rgba(255, 248, 220, 0.95), rgba(245, 222, 179, 0.95)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
           background-size: cover;
           background-position: center;
           border-radius: var(--border-radius-large);
@@ -886,10 +886,10 @@ const Cart: React.FC = () => {
         }
 
         .promo-section,
-        .order-summary {
-          background: linear-gradient(rgba(255, 248, 220, 0.95), rgba(245, 222, 179, 0.95)), url('https://picsum.photos/1000/600?random=20');
-          background-size: cover;
-          background-position: center;
+          .order-summary {
+            background: linear-gradient(rgba(255, 248, 220, 0.95), rgba(245, 222, 179, 0.95)), url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
           border-radius: var(--border-radius-large);
           padding: 1.5rem;
           box-shadow: var(--shadow-light);

@@ -89,7 +89,7 @@ const Profile: React.FC = () => {
       id: '1',
       name: 'Nasi Goreng Special',
       price: 45000,
-      image: 'https://picsum.photos/300/200?random=21',
+      image: 'https://images.unsplash.com/photo-1512058564366-18510be2db19?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
       category: 'main-courses',
       rating: 4.8,
     },
@@ -97,7 +97,7 @@ const Profile: React.FC = () => {
       id: '2',
       name: 'Rendang Padang',
       price: 65000,
-      image: 'https://picsum.photos/300/200?random=22',
+      image: 'https://images.unsplash.com/photo-1574484284002-952d92456975?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
       category: 'main-courses',
       rating: 4.9,
     },
@@ -105,7 +105,7 @@ const Profile: React.FC = () => {
       id: '5',
       name: 'Es Cendol',
       price: 15000,
-      image: 'https://picsum.photos/300/200?random=23',
+      image: 'https://images.unsplash.com/photo-1563379091339-03246963d96c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
       category: 'desserts',
       rating: 4.6,
     },
@@ -701,7 +701,7 @@ const Profile: React.FC = () => {
         .login-prompt {
           text-align: center;
           padding: 4rem 2rem;
-          background: linear-gradient(rgba(255, 248, 220, 0.95), rgba(245, 222, 179, 0.95)), url('https://picsum.photos/1000/600?random=24');
+          background: linear-gradient(rgba(255, 248, 220, 0.95), rgba(245, 222, 179, 0.95)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
           background-size: cover;
           background-position: center;
           border-radius: var(--border-radius-large);
@@ -712,7 +712,7 @@ const Profile: React.FC = () => {
           display: flex;
           align-items: center;
           gap: 2rem;
-          background: linear-gradient(rgba(255, 248, 220, 0.95), rgba(245, 222, 179, 0.95)), url('https://picsum.photos/1000/600?random=25');
+          background: linear-gradient(rgba(255, 248, 220, 0.95), rgba(245, 222, 179, 0.95)), url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
           background-size: cover;
           background-position: center;
           padding: 2rem;
@@ -810,7 +810,7 @@ const Profile: React.FC = () => {
 
         .profile-tabs {
           display: flex;
-          background: linear-gradient(rgba(255, 248, 220, 0.95), rgba(245, 222, 179, 0.95)), url('https://picsum.photos/1000/600?random=26');
+          background: linear-gradient(rgba(255, 248, 220, 0.95), rgba(245, 222, 179, 0.95)), url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
           background-size: cover;
           background-position: center;
           border-radius: var(--border-radius-large);
@@ -845,7 +845,7 @@ const Profile: React.FC = () => {
         }
 
         .tab-content {
-          background: linear-gradient(rgba(255, 248, 220, 0.95), rgba(245, 222, 179, 0.95)), url('https://picsum.photos/1000/600?random=27');
+          background: linear-gradient(rgba(255, 248, 220, 0.95), rgba(245, 222, 179, 0.95)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
           background-size: cover;
           background-position: center;
           border-radius: var(--border-radius-large);

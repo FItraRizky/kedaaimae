@@ -74,7 +74,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         id: '1',
         name: 'John Doe',
         email,
-        avatar: 'https://picsum.photos/150/150?random=28',
+        avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
         phone: '+62 812-3456-7890',
         address: 'Jakarta, Indonesia',
         level: 'Gold',

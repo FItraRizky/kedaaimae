@@ -55,7 +55,7 @@ const Menu: React.FC = () => {
       name: 'Nasi Goreng Special',
       description: 'Traditional Indonesian fried rice with shrimp, chicken, and vegetables, served with fried egg and crackers',
       price: 45000,
-      image: 'https://picsum.photos/400/300?random=10',
+      image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       category: 'main-courses',
       rating: 4.8,
       prepTime: '15 min',
@@ -71,7 +71,7 @@ const Menu: React.FC = () => {
       name: 'Rendang Padang',
       description: 'Slow-cooked beef in rich coconut curry with authentic Padang spices, served with steamed rice',
       price: 65000,
-      image: 'https://picsum.photos/400/300?random=11',
+      image: 'https://images.unsplash.com/photo-1574484284002-952d92456975?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       category: 'main-courses',
       rating: 4.9,
       prepTime: '45 min',
@@ -87,7 +87,7 @@ const Menu: React.FC = () => {
       name: 'Gado-Gado Jakarta',
       description: 'Fresh vegetable salad with tofu, tempeh, and boiled eggs, topped with peanut sauce',
       price: 35000,
-      image: 'https://picsum.photos/400/300?random=12',
+      image: 'https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       category: 'appetizers',
       rating: 4.7,
       prepTime: '10 min',
@@ -103,7 +103,7 @@ const Menu: React.FC = () => {
       name: 'Sate Ayam Madura',
       description: 'Grilled chicken skewers marinated in sweet soy sauce, served with peanut sauce and rice cakes',
       price: 35000,
-      image: 'https://picsum.photos/400/300?random=13',
+      image: 'https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       category: 'appetizers',
       rating: 4.7,
       prepTime: '20 min',
@@ -119,7 +119,7 @@ const Menu: React.FC = () => {
       name: 'Es Cendol',
       description: 'Traditional iced dessert with green rice flour jelly, coconut milk, and palm sugar syrup',
       price: 15000,
-      image: 'https://picsum.photos/400/300?random=14',
+      image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       category: 'desserts',
       rating: 4.6,
       prepTime: '5 min',
@@ -135,7 +135,7 @@ const Menu: React.FC = () => {
       name: 'Soto Ayam Lamongan',
       description: 'Clear chicken soup with turmeric, glass noodles, and fresh herbs, served with rice',
       price: 40000,
-      image: 'https://picsum.photos/400/300?random=15',
+      image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       category: 'main-courses',
       rating: 4.8,
       prepTime: '25 min',
@@ -507,7 +507,7 @@ const Menu: React.FC = () => {
         }
 
         .filters-panel {
-          background: linear-gradient(rgba(255, 248, 220, 0.95), rgba(245, 222, 179, 0.95)), url('https://picsum.photos/1000/600?random=16');
+          background: linear-gradient(rgba(255, 248, 220, 0.95), rgba(245, 222, 179, 0.95)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
           background-size: cover;
           background-position: center;
           border-radius: var(--border-radius-large);
@@ -589,7 +589,7 @@ const Menu: React.FC = () => {
         }
 
         .menu-item-card {
-          background: linear-gradient(rgba(255, 248, 220, 0.95), rgba(245, 222, 179, 0.95)), url('https://picsum.photos/1000/600?random=17');
+          background: linear-gradient(rgba(255, 248, 220, 0.95), rgba(245, 222, 179, 0.95)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
           background-size: cover;
           background-position: center;
           border-radius: var(--border-radius-large);

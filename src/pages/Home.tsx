@@ -3,6 +3,10 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star, Clock, MapPin, Users } from 'lucide-react';
 import { useSpring, animated } from '@react-spring/web';
+import SNILogo from '../SNI_mark.svg.png';
+import HalalLogo from '../Halal_Indonesia.svg.png';
+import SPPIRTLogo from '../logoSPPIRT.png';
+import HACCPLogo from '../logo-haccp.png';
 
 // Custom hook untuk efek typing
 const useTypewriter = (text: string, speed: number = 100) => {
@@ -64,9 +68,9 @@ const Home: React.FC = () => {
   }, [secondLineText]);
 
   const heroImages = [
-    'https://picsum.photos/1920/1080?random=1',
-    'https://picsum.photos/1920/1080?random=2',
-    'https://picsum.photos/1920/1080?random=3',
+    'https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
+    'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
+    'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
   ];
 
   const fadeInUp = {
@@ -105,7 +109,7 @@ const Home: React.FC = () => {
         name: 'Nasi Goreng Special',
         description: 'Authentic Indonesian fried rice with shrimp, chicken, and vegetables',
         price: 45000,
-        image: 'https://picsum.photos/400/300?random=4',
+        image: 'https://images.unsplash.com/photo-1512058564366-18510be2db19?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
         rating: 4.8,
         category: 'Main Course',
         prepTime: '15 min',
@@ -115,7 +119,7 @@ const Home: React.FC = () => {
         name: 'Rendang Padang',
         description: 'Slow-cooked beef in rich coconut curry with authentic spices',
         price: 65000,
-        image: 'https://picsum.photos/400/300?random=5',
+        image: 'https://images.unsplash.com/photo-1574484284002-952d92456975?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
         rating: 4.9,
         category: 'Main Course',
         prepTime: '45 min',
@@ -125,7 +129,7 @@ const Home: React.FC = () => {
         name: 'Sate Ayam Madura',
         description: 'Grilled chicken skewers with peanut sauce and sweet soy',
         price: 35000,
-        image: 'https://picsum.photos/400/300?random=6',
+        image: 'https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
         rating: 4.7,
         category: 'Appetizer',
         prepTime: '20 min',
@@ -300,7 +304,95 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Certifications Section */}
+      <section className="certifications-section">
+        <div className="container">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="section-header"
+          >
+            <h2 className="section-title">Sertifikasi & Standar Kualitas</h2>
+            <p className="section-subtitle">
+              Komitmen kami terhadap kualitas dan keamanan pangan terjamin melalui berbagai sertifikasi resmi
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="certifications-grid"
+            variants={staggerChildren}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.div className="certification-card" variants={fadeInUp}>
+              <div className="cert-logo">
+                <img src={SNILogo} alt="SNI Logo" width="80" height="80" />
+              </div>
+            </motion.div>
+
+            <motion.div className="certification-card" variants={fadeInUp}>
+              <div className="cert-logo">
+                <img src={HalalLogo} alt="Halal Logo" width="80" height="80" />
+              </div>
+            </motion.div>
+
+            <motion.div className="certification-card" variants={fadeInUp}>
+              <div className="cert-logo">
+                <img src={SPPIRTLogo} alt="SPP-IRT Logo" width="80" height="80" />
+              </div>
+            </motion.div>
+
+            <motion.div className="certification-card" variants={fadeInUp}>
+              <div className="cert-logo">
+                <img src={HACCPLogo} alt="HACCP Logo" width="80" height="80" />
+              </div>
+            </motion.div>
+
+            {/* Duplikasi untuk efek kontinyu */}
+            <motion.div className="certification-card" variants={fadeInUp}>
+              <div className="cert-logo">
+                <img src={SNILogo} alt="SNI Logo" width="80" height="80" />
+              </div>
+            </motion.div>
+
+            <motion.div className="certification-card" variants={fadeInUp}>
+              <div className="cert-logo">
+                <img src={HalalLogo} alt="Halal Logo" width="80" height="80" />
+              </div>
+            </motion.div>
+
+            <motion.div className="certification-card" variants={fadeInUp}>
+              <div className="cert-logo">
+                <img src={SPPIRTLogo} alt="SPP-IRT Logo" width="80" height="80" />
+              </div>
+            </motion.div>
+
+            <motion.div className="certification-card" variants={fadeInUp}>
+              <div className="cert-logo">
+                <img src={HACCPLogo} alt="HACCP Logo" width="80" height="80" />
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
       <style>{`
+        :root {
+          --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+          --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+          --transition-smooth: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          --easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+          --easing-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          --easing-natural: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+          scroll-behavior: smooth;
+        }
+
         .home {
           min-height: 100vh;
         }
@@ -331,11 +423,14 @@ const Home: React.FC = () => {
           background-size: cover;
           background-position: center;
           opacity: 0;
-          transition: opacity 1s ease-in-out;
+          transition: opacity var(--transition-smooth);
+          transform: scale(1.05);
         }
 
         .hero-slide.active {
           opacity: 1;
+          transform: scale(1);
+          transition: opacity var(--transition-smooth), transform var(--transition-smooth);
         }
 
         .hero-content {
@@ -424,7 +519,7 @@ const Home: React.FC = () => {
         }
 
         .stat-card {
-          background: linear-gradient(rgba(255, 248, 220, 0.9), rgba(245, 222, 179, 0.9)), url('https://picsum.photos/1000/600?random=7');
+          background: linear-gradient(rgba(255, 248, 220, 0.9), rgba(245, 222, 179, 0.9)), url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
           background-size: cover;
           background-position: center;
           padding: 2rem;
@@ -456,7 +551,7 @@ const Home: React.FC = () => {
 
         .featured-section {
           padding: 4rem 0;
-          background: linear-gradient(rgba(255, 248, 220, 0.8), rgba(245, 222, 179, 0.8)), url('https://picsum.photos/2000/1200?random=8');
+          background: linear-gradient(rgba(255, 248, 220, 0.8), rgba(245, 222, 179, 0.8)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
           background-size: cover;
           background-position: center;
           background-attachment: fixed;
@@ -487,17 +582,19 @@ const Home: React.FC = () => {
         }
 
         .dish-card {
-          background: linear-gradient(rgba(255, 248, 220, 0.95), rgba(245, 222, 179, 0.95)), url('https://picsum.photos/1000/600?random=9');
+          background: linear-gradient(rgba(255, 248, 220, 0.95), rgba(245, 222, 179, 0.95)), url('https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
           background-size: cover;
           background-position: center;
           border-radius: var(--border-radius-large);
           box-shadow: var(--shadow-light);
           overflow: hidden;
-          transition: var(--transition);
+          transition: all var(--transition-smooth);
+          will-change: transform, box-shadow;
         }
 
         .dish-card:hover {
-          box-shadow: var(--shadow-medium);
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+          transform: translateY(-12px) scale(1.02);
         }
 
         .dish-image-container {
@@ -510,11 +607,12 @@ const Home: React.FC = () => {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          transition: transform 0.3s ease;
+          transition: transform var(--transition-smooth);
+          will-change: transform;
         }
 
         .dish-card:hover .dish-image {
-          transform: scale(1.05);
+          transform: scale(1.08) rotate(1deg);
         }
 
         .dish-overlay {
@@ -581,6 +679,74 @@ const Home: React.FC = () => {
           margin-top: 3rem;
         }
 
+        .certifications-section {
+          padding: 4rem 0;
+          background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .certifications-grid {
+          display: flex;
+          gap: 2rem;
+          margin-top: 3rem;
+          overflow: hidden;
+          white-space: nowrap;
+          animation: runningLogos 20s ease-in-out infinite;
+          will-change: transform;
+        }
+
+        @keyframes runningLogos {
+          0% {
+            transform: translateX(100%);
+          }
+          50% {
+            transform: translateX(-50%);
+          }
+          100% {
+            transform: translateX(-200%);
+          }
+        }
+
+        .certification-card {
+          background: white;
+          padding: 1.5rem;
+          border-radius: 16px;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+          text-align: center;
+          transition: all var(--transition-normal);
+          border: 1px solid #e2e8f0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          width: 120px;
+          height: 120px;
+          will-change: transform, box-shadow;
+        }
+
+        .certification-card:hover {
+          transform: translateY(-8px) scale(1.05);
+          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+          border-color: #cbd5e1;
+        }
+
+        .cert-logo {
+          display: flex;
+          justify-content: center;
+        }
+
+        .cert-logo img {
+          object-fit: contain;
+          border-radius: 8px;
+          transition: transform var(--transition-normal);
+          will-change: transform;
+        }
+
+        .certification-card:hover .cert-logo img {
+          transform: scale(1.15) rotate(5deg);
+        }
+
+
+
         @media (max-width: 768px) {
           .hero-actions {
             flex-direction: column;
@@ -593,6 +759,21 @@ const Home: React.FC = () => {
 
           .section-title {
             font-size: 2rem;
+          }
+
+          .certifications-grid {
+            gap: 1.5rem;
+          }
+
+          .certification-card {
+            padding: 1rem;
+            width: 100px;
+            height: 100px;
+          }
+
+          .cert-logo img {
+            width: 60px;
+            height: 60px;
           }
         }
       `}</style>
