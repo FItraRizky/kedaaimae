@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Calendar, 
@@ -11,18 +11,14 @@ import {
   Award, 
   Heart, 
   Share2, 
-  Filter, 
   Search, 
   Plus, 
   Minus, 
-  User, 
-  Mail, 
   Phone, 
   CreditCard, 
   CheckCircle, 
   ArrowLeft, 
   BookOpen, 
-  Camera, 
   Coffee
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
@@ -94,7 +90,7 @@ const Events: React.FC = () => {
       notes: ''
     }
   });
-  const [bookingConfirmed, setBookingConfirmed] = useState(false);
+
 
   // Mock events data
   const [events] = useState<Event[]>([
@@ -347,7 +343,7 @@ const Events: React.FC = () => {
       setBookingStep('payment');
     } else if (bookingStep === 'payment') {
       setBookingStep('confirmation');
-      setBookingConfirmed(true);
+      // Booking confirmed
       toast.success('Booking confirmed successfully!');
     }
   };
@@ -1068,7 +1064,7 @@ const Events: React.FC = () => {
                         setShowBookingModal(false);
                         setSelectedEvent(null);
                         setBookingStep('details');
-                        setBookingConfirmed(false);
+                        // Reset booking state
                       }}
                     >
                       Done

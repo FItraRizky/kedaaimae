@@ -11,12 +11,8 @@ import {
   Clock, 
   User, 
   Phone, 
-  Mail, 
   Tag, 
-  Gift, 
-  Percent, 
-  CheckCircle,
-  AlertCircle
+  CheckCircle
 } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
@@ -67,7 +63,7 @@ const Cart: React.FC = () => {
     address: '',
     notes: ''
   });
-  const [orderPlaced, setOrderPlaced] = useState(false);
+
 
   const deliveryOptions: DeliveryOption[] = [
     {
@@ -183,7 +179,6 @@ const Cart: React.FC = () => {
     }
 
     // Simulate order placement
-    setOrderPlaced(true);
     setStep('confirmation');
     toast.success('Order placed successfully!');
     

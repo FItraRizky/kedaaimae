@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star, Clock, MapPin, Users } from 'lucide-react';
-import { useSpring, animated } from '@react-spring/web';
 import SNILogo from '../SNI_mark.svg.png';
 import HalalLogo from '../Halal_Indonesia.svg.png';
 import SPPIRTLogo from '../logoSPPIRT.png';
@@ -88,10 +87,7 @@ const Home: React.FC = () => {
     },
   };
 
-  const [springProps, setSpringProps] = useSpring(() => ({
-    transform: 'scale(1)',
-    config: { tension: 300, friction: 10 },
-  }));
+
 
   useEffect(() => {
     const interval = setInterval(() => {

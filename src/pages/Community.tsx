@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, ThumbsUp, ThumbsDown, Share2, Plus, Search, Filter, Users, Calendar, Star, Camera, Heart, MessageSquare, TrendingUp } from 'lucide-react';
-import { useAuth } from '../context/AuthContext';
+import { MessageCircle, ThumbsUp, ThumbsDown, Share2, Plus, Search, Camera, Heart, MessageSquare, TrendingUp } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 interface ForumPost {
@@ -64,7 +63,6 @@ const Community: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [showNewPostModal, setShowNewPostModal] = useState(false);
   const [showNewPollModal, setShowNewPollModal] = useState(false);
-  const { user } = useAuth();
 
   const categories = [
     'all',

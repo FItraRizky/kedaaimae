@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { User, Settings, Heart, Clock, Bell, MapPin, Phone, Mail, Camera, Edit3, Save, X, Calendar, Star, ShoppingBag, Award, TrendingUp } from 'lucide-react';
+import { User, Settings, Heart, Clock, Camera, Edit3, Save, X, Star, ShoppingBag, Award, TrendingUp } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
-import { useCart } from '../context/CartContext';
 import toast from 'react-hot-toast';
 
 interface OrderHistory {
@@ -29,7 +28,6 @@ interface FavoriteItem {
 
 const Profile: React.FC = () => {
   const { user, updateProfile, logout } = useAuth();
-  const { orderHistory } = useCart();
   const [activeTab, setActiveTab] = useState('profile');
   const [isEditing, setIsEditing] = useState(false);
   const [editForm, setEditForm] = useState({

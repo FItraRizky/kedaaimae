@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   BarChart3, 
@@ -98,7 +98,6 @@ const Admin: React.FC = () => {
   const [selectedFilter, setSelectedFilter] = useState('all');
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState<'menu' | 'user' | 'promotion' | null>(null);
-  const [selectedItem, setSelectedItem] = useState<any>(null);
 
   // Mock data - in real app, this would come from API
   const [stats] = useState<DashboardStats>({
@@ -177,7 +176,7 @@ const Admin: React.FC = () => {
     },
   ]);
 
-  const [users, setUsers] = useState<User[]>([
+  const [users] = useState<User[]>([
     {
       id: '1',
       name: 'Ahmad Wijaya',

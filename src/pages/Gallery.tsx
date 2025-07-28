@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Filter, Grid, List, Heart, Share2, Download, X, ChevronLeft, ChevronRight, Eye, Camera, Calendar, User } from 'lucide-react';
+import { Search, Grid, List, Heart, Share2, Download, X, ChevronLeft, ChevronRight, Eye, Camera, Calendar, User } from 'lucide-react';
 import { useSpring, animated } from '@react-spring/web';
 
 interface GalleryImage {

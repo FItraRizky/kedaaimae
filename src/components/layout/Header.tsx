@@ -9,7 +9,6 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const { cart } = useCart();
-  const { user } = useAuth();
 
   const cartItemsCount = cart.reduce((total, item) => total + item.quantity, 0);
 

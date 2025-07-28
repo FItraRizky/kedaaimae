@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Filter, Star, Clock, Plus, ShoppingCart } from 'lucide-react';
+import { Search, Filter, Star, Clock, ShoppingCart } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
@@ -49,7 +49,7 @@ const Menu: React.FC = () => {
     'spicy',
   ];
 
-  const menuItems: MenuItem[] = [
+  const menuItems: MenuItem[] = useMemo(() => [
     {
       id: '1',
       name: 'Nasi Goreng Special',
@@ -146,7 +146,7 @@ const Menu: React.FC = () => {
       isVegan: false,
       isGlutenFree: false,
     },
-  ];
+  ], []);
 
   const filteredItems = useMemo(() => {
     let filtered = menuItems;
@@ -216,7 +216,7 @@ const Menu: React.FC = () => {
     });
 
     return filtered;
-  }, [searchTerm, selectedCategory, selectedDietary, sortBy, user]);
+  }, [searchTerm, selectedCategory, selectedDietary, sortBy, user, menuItems]);
 
   const handleAddToCart = (item: MenuItem) => {
     // Check for allergens based on user preferences

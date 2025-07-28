@@ -50,7 +50,6 @@ export const useCart = () => {
 
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
-  const [orderHistory, setOrderHistory] = useState<OrderHistory[]>([]);
   const [discount, setDiscount] = useState<CartContextType['discount']>(null);
 
   useEffect(() => {
