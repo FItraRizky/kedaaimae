@@ -1,25 +1,50 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Toaster } from 'react-hot-toast';
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
+import Home from './pages/Home';
+import Menu from './pages/Menu';
+import Community from './pages/Community';
+import Profile from './pages/Profile';
+import Admin from './pages/Admin';
+import Cart from './pages/Cart';
+import Events from './pages/Events';
+import Gallery from './pages/Gallery';
+import { CartProvider } from './context/CartContext';
+import { AuthProvider } from './context/AuthContext';
+import './styles/global.css';
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <CartProvider>
+          <Router>
+            <div className="App">
+              <Header />
+              <main>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/menu" element={<Menu />} />
+                  <Route path="/community" element={<Community />} />
+                  <Route path="/profile" element={<Profile />} />
+                  <Route path="/admin/*" element={<Admin />} />
+                  <Route path="/cart" element={<Cart />} />
+                  <Route path="/events" element={<Events />} />
+                  <Route path="/gallery" element={<Gallery />} />
+                </Routes>
+              </main>
+              <Footer />
+              <Toaster position="top-right" />
+            </div>
+          </Router>
+        </CartProvider>
+      </AuthProvider>
+    </QueryClientProvider>
   );
 }
 
