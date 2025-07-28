@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ShoppingCart, User, Menu as MenuIcon, X, Calendar, Camera, Users } from 'lucide-react';
+import { ShoppingCart, User, Menu as MenuIcon, X, Calendar, Camera, Users, LogIn } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 
 // Import logo
@@ -20,6 +20,7 @@ const Header: React.FC = () => {
     { path: '/gallery', label: 'Gallery', icon: <Camera size={16} /> },
     { path: '/events', label: 'Events', icon: <Calendar size={16} /> },
     { path: '/community', label: 'Community', icon: <Users size={16} /> },
+    { path: '/login', label: 'Login', icon: <LogIn size={16} /> },
   ];
 
   return (

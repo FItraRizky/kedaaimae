@@ -12,6 +12,7 @@ import Admin from './pages/Admin';
 import Cart from './pages/Cart';
 import Events from './pages/Events';
 import Gallery from './pages/Gallery';
+import Login from './pages/Login';
 import { CartProvider } from './context/CartContext';
 import { AuthProvider } from './context/AuthContext';
 import './styles/global.css';
@@ -36,6 +37,7 @@ function App() {
                   <Route path="/cart" element={<Cart />} />
                   <Route path="/events" element={<Events />} />
                   <Route path="/gallery" element={<Gallery />} />
+                  <Route path="/login" element={<Login />} />
                 </Routes>
               </main>
               <Footer />
