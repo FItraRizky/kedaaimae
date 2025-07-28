@@ -5,8 +5,6 @@ import {
   Users, 
   ShoppingBag, 
   Menu as MenuIcon, 
-  Settings, 
-  TrendingUp, 
   DollarSign, 
   Clock, 
   Star, 
@@ -14,15 +12,8 @@ import {
   Edit, 
   Trash2, 
   Search, 
-  Filter, 
   Download, 
-  Bell, 
   Eye, 
-  CheckCircle, 
-  XCircle, 
-  AlertCircle,
-  Calendar,
-  Package,
   Percent
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
@@ -96,8 +87,7 @@ const Admin: React.FC = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedFilter, setSelectedFilter] = useState('all');
-  const [showModal, setShowModal] = useState(false);
-  const [modalType, setModalType] = useState<'menu' | 'user' | 'promotion' | null>(null);
+
 
   // Mock data - in real app, this would come from API
   const [stats] = useState<DashboardStats>({

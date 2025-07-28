@@ -61,8 +61,7 @@ const Community: React.FC = () => {
   const [activeTab, setActiveTab] = useState('forum');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [showNewPostModal, setShowNewPostModal] = useState(false);
-  const [showNewPollModal, setShowNewPollModal] = useState(false);
+
 
   const categories = [
     'all',
@@ -351,7 +350,7 @@ const Community: React.FC = () => {
 
             <button
               className="new-post-btn"
-              onClick={() => setShowNewPostModal(true)}
+              onClick={() => toast.success('New post feature coming soon!')}
             >
               <Plus size={20} />
               New Post
@@ -450,7 +449,7 @@ const Community: React.FC = () => {
               <div className="polls-header">
                 <button
                   className="new-poll-btn"
-                  onClick={() => setShowNewPollModal(true)}
+                  onClick={() => toast.success('Create poll feature coming soon!')}
                 >
                   <Plus size={20} />
                   Create Poll
