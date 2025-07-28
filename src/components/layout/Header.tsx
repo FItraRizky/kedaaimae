@@ -4,6 +4,9 @@ import { motion } from 'framer-motion';
 import { ShoppingCart, User, Menu as MenuIcon, X, Calendar, Camera, Users } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 
+// Import logo
+import logoImage from '../../logooo.jpg';
+
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
@@ -29,12 +32,19 @@ const Header: React.FC = () => {
       <div className="container">
         <div className="header-content">
           <Link to="/" className="logo">
-            <motion.h1
-              whileHover={{ scale: 1.05 }}
-              className="logo-text"
-            >
-              Kedai Mae
-            </motion.h1>
+            <div className="logo-container">
+              <img 
+                src={logoImage}
+                alt="Mae Kedai Logo" 
+                className="logo-image"
+              />
+              <motion.h1
+                whileHover={{ scale: 1.05 }}
+                className="logo-text"
+              >
+                Mae Kedai
+              </motion.h1>
+            </div>
           </Link>
 
           <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
@@ -112,6 +122,26 @@ const Header: React.FC = () => {
 
         .logo {
           text-decoration: none;
+        }
+
+        .logo-container {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+        }
+
+        .logo-image {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          object-fit: cover;
+          transition: var(--transition);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-image:hover {
+          transform: scale(1.1);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         .logo-text {

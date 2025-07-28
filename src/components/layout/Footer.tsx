@@ -89,15 +89,15 @@ const Footer: React.FC = () => {
             <div className="contact-info">
               <div className="contact-item">
                 <MapPin size={16} />
-                <span>123 Culinary Street, Jakarta, Indonesia</span>
+                <span>Bandar Lampung</span>
               </div>
               <div className="contact-item">
                 <Phone size={16} />
-                <span>+62 123 4567 8900</span>
+                <span>+62 --------</span>
               </div>
               <div className="contact-item">
                 <Mail size={16} />
-                <span>hello@kedaimae.com</span>
+                <span>info@kedaimae.com</span>
               </div>
               <div className="contact-item">
                 <Clock size={16} />
