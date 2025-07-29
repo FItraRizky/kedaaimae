@@ -3,8 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ShoppingCart, User, Menu as MenuIcon, X, Calendar, Camera, Users, LogIn } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+
 
 // Import logo
 import logoImage from '../../logooo.jpg';
@@ -25,14 +24,7 @@ const Header: React.FC = () => {
     setIsMenuOpen(false);
   };
 
-  useEffect(() => {
-    AOS.init({
-      duration: 800,
-      easing: 'ease-in-out',
-      once: true,
-      mirror: false
-    });
-  }, []);
+
 
   // Prevent body scroll when menu is open
   useEffect(() => {
@@ -69,23 +61,29 @@ const Header: React.FC = () => {
       transition={{ duration: 0.6 }}
       className="header"
     >
-      <div className="container" data-aos="fade-down" data-aos-duration="800">
-        <div className="header-content" data-aos="fade-in" data-aos-delay="100">
-          <Link to="/" className="logo" data-aos="fade-right">
-            <div className="logo-container">
-              <img 
-                src={logoImage}
-                alt="Mae Kedai Logo" 
-                className="logo-image"
-              />
-              <motion.h1
-                whileHover={{ scale: 1.05 }}
-                className="logo-text"
-              >
-                Mae Kedai
-              </motion.h1>
-            </div>
-          </Link>
+      <div className="container">
+        <div className="header-content">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <Link to="/" className="logo">
+              <div className="logo-container">
+                <img 
+                  src={logoImage}
+                  alt="Mae Kedai Logo" 
+                  className="logo-image"
+                />
+                <motion.h1
+                  whileHover={{ scale: 1.05 }}
+                  className="logo-text"
+                >
+                  Mae Kedai
+                </motion.h1>
+              </div>
+            </Link>
+          </motion.div>
 
           {/* Mobile menu overlay */}
           {isMenuOpen && (
@@ -96,24 +94,42 @@ const Header: React.FC = () => {
             />
           )}
 
-          <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`} data-aos="fade-left">
+          <motion.nav 
+            className={`nav ${isMenuOpen ? 'nav-open' : ''}`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
             {navItems.map((item, index) => (
-              <Link
+              <motion.div
                 key={item.path}
-                to={item.path}
-                className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
-                onClick={handleMenuClose}
-                onTouchStart={handleMenuClose}
-                data-aos="fade-up"
-                data-aos-delay={`${100 + index * 50}`}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  duration: 0.5, 
+                  delay: index * 0.1,
+                  ease: "easeOut"
+                }}
               >
-                {item.icon && <span className="nav-icon">{item.icon}</span>}
-                {item.label}
-              </Link>
-            ))}
-          </nav>
+                <Link
+                  to={item.path}
+                  className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
+                  onClick={handleMenuClose}
+                  onTouchStart={handleMenuClose}
+                >
+                  {item.icon && <span className="nav-icon">{item.icon}</span>}
+                  {item.label}
+                </Link>
+              </motion.div>
+             ))}
+           </motion.nav>
 
-          <div className="header-actions" data-aos="fade-left" data-aos-delay="200">
+          <motion.div 
+            className="header-actions"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+          >
             <Link to="/cart" className="cart-button">
               <motion.div
                 whileHover={{ scale: 1.1 }}
@@ -148,12 +164,10 @@ const Header: React.FC = () => {
               onClick={handleMenuToggle}
               onTouchStart={handleMenuToggle}
               aria-label="Toggle menu"
-              data-aos="zoom-in"
-              data-aos-delay="300"
             >
               {isMenuOpen ? <X size={24} /> : <MenuIcon size={24} />}
             </button>
-          </div>
+          </motion.div>
         </div>
       </div>
 
