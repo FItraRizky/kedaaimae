@@ -389,3 +389,40 @@ p {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary-color);
 }
+
+/* Typing Effect Motion Blur */
+.hero-title-line {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: blur(0px);
+  transform: translateZ(0);
+  will-change: filter, transform;
+}
+
+.hero-title-line.typing {
+  animation: typeMotionBlur 0.1s ease-out;
+}
+
+@keyframes typeMotionBlur {
+  0% {
+    filter: blur(0.5px);
+    transform: translateX(-1px) scale(1.002);
+  }
+  50% {
+    filter: blur(0.8px);
+    transform: translateX(0.5px) scale(1.001);
+  }
+  100% {
+    filter: blur(0px);
+    transform: translateX(0px) scale(1);
+  }
+}
+
+.typing-cursor {
+  transition: all 0.2s ease;
+  filter: blur(0px);
+}
+
+.typing-cursor.active {
+  filter: blur(0.3px);
+  text-shadow: 0 0 2px currentColor;
+}

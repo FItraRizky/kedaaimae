@@ -6,25 +6,9 @@ import SNILogo from '../SNI_mark.svg.png';
 import HalalLogo from '../Halal_Indonesia.svg.png';
 import SPPIRTLogo from '../logoSPPIRT.png';
 import HACCPLogo from '../logo-haccp.png';
+import TypeText from '../components/TypeText';
 
-// Custom hook untuk efek typing
-const useTypewriter = (text: string, speed: number = 100) => {
-  const [displayText, setDisplayText] = useState('');
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    if (currentIndex < text.length) {
-      const timeout = setTimeout(() => {
-        setDisplayText(prev => prev + text[currentIndex]);
-        setCurrentIndex(prev => prev + 1);
-      }, speed);
-
-      return () => clearTimeout(timeout);
-    }
-  }, [currentIndex, text, speed]);
-
-  return displayText;
-};
+// BlurText component is now used for text animations
 
 interface Dish {
   id: string;
@@ -41,30 +25,7 @@ const Home: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [featuredDishes, setFeaturedDishes] = useState<Dish[]>([]);
   
-  // Efek typing untuk judul hero
-  const typedText = useTypewriter('Experience Authentic', 150);
-  const [showSecondLine, setShowSecondLine] = useState(false);
-  const [showFirstCursor, setShowFirstCursor] = useState(true);
-  const [showSecondCursor, setShowSecondCursor] = useState(false);
-  const secondLineText = useTypewriter(showSecondLine ? 'Indonesian Cuisine' : '', 120);
-  
-  useEffect(() => {
-    if (typedText === 'Experience Authentic') {
-      setShowFirstCursor(false);
-      const timer = setTimeout(() => {
-        setShowSecondLine(true);
-        setShowSecondCursor(true);
-      }, 500);
-      return () => clearTimeout(timer);
-    }
-  }, [typedText]);
-  
-  useEffect(() => {
-    if (secondLineText === 'Indonesian Cuisine') {
-      const timer = setTimeout(() => setShowSecondCursor(false), 1000);
-      return () => clearTimeout(timer);
-    }
-  }, [secondLineText]);
+  // BlurText animations are handled by the component itself
 
   const heroImages = [
     'https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
@@ -162,17 +123,23 @@ const Home: React.FC = () => {
           animate="visible"
           variants={staggerChildren}
         >
-          <motion.h1 variants={fadeInUp} className="hero-title">
-            {typedText}
-            {showFirstCursor && <span className="typing-cursor">|</span>}
-            <br />
-            {showSecondLine && (
-              <span className="hero-highlight">
-                {secondLineText}
-                {showSecondCursor && <span className="typing-cursor">|</span>}
-              </span>
-            )}
-          </motion.h1>
+          <div className="hero-title">
+            <TypeText 
+              text={["Experience Authentic Indonesian Cuisine"]}
+              asElement="h1"
+              typingSpeed={400}
+              initialDelay={2000}
+              pauseDuration={300}
+              deletingSpeed={200}
+              loop={true}
+              showCursor={true}
+              cursorCharacter="_"
+              cursorBlinkDuration={1.5}
+              variableSpeed={{min: 350, max: 450}}
+              startOnVisible={true}
+              className="hero-title-line"
+            />
+          </div>
           
           <motion.p variants={fadeInUp} className="hero-subtitle">
             Discover the rich flavors of Indonesia with our carefully crafted dishes,
@@ -444,6 +411,16 @@ const Home: React.FC = () => {
           text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
+        .hero-title-line {
+          font-size: clamp(2.5rem, 5vw, 4rem);
+          font-weight: 700;
+          line-height: 1.1;
+          text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+          color: var(--bg-light);
+          display: block;
+          margin-bottom: 0.5rem;
+        }
+
         .hero-highlight {
           background: linear-gradient(135deg, #FFD23F, #FF6B35);
           -webkit-background-clip: text;
@@ -451,22 +428,7 @@ const Home: React.FC = () => {
           background-clip: text;
         }
 
-        .typing-cursor {
-          display: inline-block;
-          background-color: var(--bg-light);
-          margin-left: 3px;
-          width: 3px;
-          animation: blink 1s infinite;
-        }
 
-        @keyframes blink {
-          0%, 50% {
-            opacity: 1;
-          }
-          51%, 100% {
-            opacity: 0;
-          }
-        }
 
         .hero-subtitle {
           font-size: 1.2rem;
@@ -741,7 +703,14 @@ const Home: React.FC = () => {
           transform: scale(1.15) rotate(5deg);
         }
 
+        .typing-cursor {
+          display: inline-block;
+        }
 
+        @keyframes blink {
+          0%, 50% { opacity: 1; }
+          51%, 100% { opacity: 0; }
+        }
 
         @media (max-width: 768px) {
           .hero-actions {
