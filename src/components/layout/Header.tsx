@@ -108,11 +108,11 @@ const Header: React.FC = () => {
           position: sticky;
           top: 0;
           z-index: 1000;
-          background: #F5F5DC;
+          background: linear-gradient(135deg,rgb(29, 29, 163) 50%, #808080 100%);
           backdrop-filter: blur(10px);
-          border-bottom: 1px solid rgba(245, 245, 220, 0.3);
+          border-bottom: 1px solid rgba(0, 0, 128, 0.3);
           padding: 1rem 0;
-          box-shadow: 0 2px 10px rgba(245, 245, 220, 0.2);
+          box-shadow: 0 2px 10px rgba(0, 0, 128, 0.2);
         }
 
         .header-content {
@@ -148,9 +148,9 @@ const Header: React.FC = () => {
         .logo-text {
           font-size: 1.5rem;
           font-weight: 700;
-          color: #000000;
+          color: #F5DEB3;
           margin: 0;
-          text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+          text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
         .nav {
@@ -164,7 +164,7 @@ const Header: React.FC = () => {
           align-items: center;
           gap: 0.5rem;
           text-decoration: none;
-          color: #000000;
+          color: #FFFFFF;
           font-weight: 500;
           padding: 0.5rem 1rem;
           border-radius: var(--border-radius);
@@ -173,8 +173,8 @@ const Header: React.FC = () => {
 
         .nav-link:hover,
         .nav-link.active {
-          background: rgba(135, 206, 235, 0.3);
-          color: #1a1a1a;
+          background: rgba(255, 255, 255, 0.2);
+          color: #FFFFFF;
           transform: translateY(-1px);
         }
 
@@ -187,7 +187,7 @@ const Header: React.FC = () => {
         .cart-button,
         .profile-button {
           text-decoration: none;
-          color: #000000;
+          color: #FFFFFF;
         }
 
         .cart-icon-container,
@@ -200,7 +200,7 @@ const Header: React.FC = () => {
 
         .cart-icon-container:hover,
         .profile-icon-container:hover {
-          background: rgba(135, 206, 235, 0.3);
+          background: rgba(255, 255, 255, 0.2);
           transform: scale(1.1);
         }
 
@@ -229,11 +229,11 @@ const Header: React.FC = () => {
           padding: 0.5rem;
           border-radius: 50%;
           transition: var(--transition);
-          color: #000000;
+          color: #FFFFFF;
         }
 
         .menu-toggle:hover {
-          background: rgba(135, 206, 235, 0.3);
+          background: rgba(255, 255, 255, 0.2);
           transform: scale(1.1);
         }
 
@@ -243,10 +243,10 @@ const Header: React.FC = () => {
             top: 70px;
             left: 0;
             right: 0;
-            background: #F5F5DC;
+            background: linear-gradient(135deg, #000080 0%, #808080 100%);
             flex-direction: column;
             padding: 2rem;
-            box-shadow: 0 4px 20px rgba(245, 245, 220, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 128, 0.3);
             transform: translateX(-100%);
             transition: transform 0.3s ease;
           }

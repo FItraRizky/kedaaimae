@@ -1,17 +1,17 @@
 :root {
-  --primary-color: #D2B48C;
-  --secondary-color: #F5DEB3;
-  --accent-color: #8B7355;
+  --primary-color: #000080;
+  --secondary-color: #4169E1;
+  --accent-color: #1E90FF;
   --text-dark: #000000;
   --text-light: #000000;
-  --bg-light: #FFF8DC;
-  --bg-dark: #F5F5DC;
-  --white: #FFFEF7;
-  --shadow-light: 0 4px 20px rgba(210, 180, 140, 0.15);
-  --shadow-medium: 0 8px 32px rgba(210, 180, 140, 0.2);
-  --shadow-heavy: 0 12px 48px rgba(210, 180, 140, 0.25);
-  --gradient-primary: linear-gradient(135deg, #F5DEB3 0%, #D2B48C 100%);
-  --gradient-secondary: linear-gradient(135deg, #FFF8DC 0%, #F5DEB3 100%);
+  --bg-light: #FFFFFF;
+  --bg-dark: #F8F9FA;
+  --white: #FFFFFF;
+  --shadow-light: 0 4px 20px rgba(0, 0, 128, 0.15);
+  --shadow-medium: 0 8px 32px rgba(0, 0, 128, 0.2);
+  --shadow-heavy: 0 12px 48px rgba(0, 0, 128, 0.25);
+  --gradient-primary: linear-gradient(135deg, #4169E1 0%, #000080 100%);
+  --gradient-secondary: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
   --border-radius: 12px;
   --border-radius-large: 24px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -160,7 +160,7 @@ p {
 
 .btn-primary:hover {
   transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 12px 40px rgba(139, 0, 0, 0.3);
+  box-shadow: 0 12px 40px rgba(0, 0, 128, 0.3);
 }
 
 .btn-secondary {
@@ -173,7 +173,7 @@ p {
   background: var(--primary-color);
   color: var(--white);
   transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 8px 30px rgba(139, 0, 0, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 128, 0.2);
 }
 
 .btn-ghost {
@@ -183,13 +183,13 @@ p {
 }
 
 .btn-ghost:hover {
-  background: rgba(255, 107, 53, 0.1);
+  background: rgba(0, 0, 128, 0.1);
   transform: translateY(-1px);
 }
 
 /* Cards */
 .card {
-  background: linear-gradient(rgba(255, 248, 220, 0.95), rgba(245, 222, 179, 0.95)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+  background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
   background-size: cover;
   background-position: center;
   border-radius: var(--border-radius-large);
@@ -240,7 +240,7 @@ p {
 .form-input:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+  box-shadow: 0 0 0 3px rgba(0, 0, 128, 0.1);
 }
 
 .form-input.error {
@@ -361,14 +361,14 @@ p {
 /* Dark Mode Support */
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-light: #2F2B26;
-    --text-dark: #FFF8F3;
-    --text-light: #E8E0D6;
+    --bg-light: #1A1A2E;
+    --text-dark: #FFFFFF;
+    --text-light: #E8E8E8;
   }
   
   .card {
-    background: #3D3530;
-    border: 1px solid #4A4035;
+    background: #16213E;
+    border: 1px solid #0F3460;
   }
 }
 
