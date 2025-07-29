@@ -24,6 +24,24 @@ const Header: React.FC = () => {
     setIsMenuOpen(false);
   };
 
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (isMenuOpen && !target.closest('.nav') && !target.closest('.menu-toggle')) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener('click', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [isMenuOpen]);
+
 
 
   // Prevent body scroll when menu is open
@@ -115,7 +133,6 @@ const Header: React.FC = () => {
                   to={item.path}
                   className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
                   onClick={handleMenuClose}
-                  onTouchStart={handleMenuClose}
                 >
                   {item.icon && <span className="nav-icon">{item.icon}</span>}
                   {item.label}
@@ -162,7 +179,6 @@ const Header: React.FC = () => {
             <button
               className="menu-toggle"
               onClick={handleMenuToggle}
-              onTouchStart={handleMenuToggle}
               aria-label="Toggle menu"
             >
               {isMenuOpen ? <X size={24} /> : <MenuIcon size={24} />}
@@ -293,10 +309,17 @@ const Header: React.FC = () => {
           background: none;
           border: none;
           cursor: pointer;
-          padding: 0.5rem;
-          border-radius: 50%;
-          transition: var(--transition);
+          padding: 0.75rem;
+          border-radius: 8px;
+          transition: all 0.3s ease;
           color: #000000;
+          min-width: 48px;
+          min-height: 48px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          -webkit-tap-highlight-color: transparent;
+          touch-action: manipulation;
         }
 
         .menu-toggle:hover {
