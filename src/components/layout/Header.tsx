@@ -328,11 +328,11 @@ const Header: React.FC = () => {
 
         .menu-overlay {
           position: fixed;
-          top: 0;
+          top: 80px;
           left: 0;
           right: 0;
           bottom: 0;
-          background: rgba(0, 0, 0, 0.5);
+          background: rgba(0, 0, 0, 0.3);
           z-index: 9998;
           display: block;
         }
@@ -348,46 +348,53 @@ const Header: React.FC = () => {
           }
           .nav {
             position: fixed;
-            top: 0;
+            top: 80px;
             left: 0;
             right: 0;
-            bottom: 0;
+            height: auto;
+            max-height: calc(100vh - 80px);
             background: linear-gradient(135deg, #D2B48C 0%, #F5DEB3 100%);
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
-            padding: 2rem;
+            padding: 1rem;
             box-shadow: 0 4px 20px rgba(210, 180, 140, 0.3);
-            transform: translateX(-100%);
+            transform: translateY(-100%);
             transition: transform 0.3s ease;
             z-index: 9999;
-            overflow: hidden;
+            overflow-y: auto;
             -webkit-overflow-scrolling: touch;
-            visibility: visible;
-            opacity: 1;
+            visibility: hidden;
+            opacity: 0;
             will-change: transform;
-            -webkit-transform: translateX(-100%);
-            -moz-transform: translateX(-100%);
-            -ms-transform: translateX(-100%);
-            transform: translateX(-100%);
+            -webkit-transform: translateY(-100%);
+            -moz-transform: translateY(-100%);
+            -ms-transform: translateY(-100%);
+            transform: translateY(-100%);
           }
 
           .nav-open {
-            -webkit-transform: translateX(0);
-            -moz-transform: translateX(0);
-            -ms-transform: translateX(0);
-            transform: translateX(0);
+            -webkit-transform: translateY(0);
+            -moz-transform: translateY(0);
+            -ms-transform: translateY(0);
+            transform: translateY(0);
             visibility: visible;
             opacity: 1;
           }
 
           .nav-link {
-            font-size: 1.2rem;
-            padding: 1rem 2rem;
-            margin: 0.5rem 0;
-            width: 100%;
+            font-size: 1rem;
+            padding: 0.75rem 1.5rem;
+            margin: 0.25rem 0;
+            width: 90%;
             text-align: center;
             border-radius: 8px;
+            transition: all 0.2s ease;
+          }
+
+          .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
           }
 
           .header {
