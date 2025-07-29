@@ -302,6 +302,14 @@ const Header: React.FC = () => {
         }
 
         @media (max-width: 768px) {
+          * {
+            -webkit-tap-highlight-color: transparent;
+          }
+
+          html, body {
+            overflow-x: hidden;
+            position: relative;
+          }
           .nav {
             position: fixed;
             top: 0;
@@ -319,10 +327,22 @@ const Header: React.FC = () => {
             z-index: 9999;
             overflow: hidden;
             -webkit-overflow-scrolling: touch;
+            visibility: visible;
+            opacity: 1;
+            will-change: transform;
+            -webkit-transform: translateX(-100%);
+            -moz-transform: translateX(-100%);
+            -ms-transform: translateX(-100%);
+            transform: translateX(-100%);
           }
 
           .nav-open {
+            -webkit-transform: translateX(0);
+            -moz-transform: translateX(0);
+            -ms-transform: translateX(0);
             transform: translateX(0);
+            visibility: visible;
+            opacity: 1;
           }
 
           .nav-link {
@@ -334,19 +354,47 @@ const Header: React.FC = () => {
             border-radius: 8px;
           }
 
-          .menu-toggle {
-            display: block;
-            z-index: 10000;
-            position: relative;
-          }
-
           .header {
             position: fixed;
             width: 100%;
             top: 0;
             left: 0;
             right: 0;
+            z-index: 1000;
           }
+
+          body {
+            padding-top: 80px;
+          }
+
+          .menu-toggle {
+             display: block !important;
+             z-index: 10000;
+             position: relative;
+             background: rgba(255, 255, 255, 0.2);
+             border: 2px solid rgba(0, 0, 0, 0.1);
+             border-radius: 8px;
+             padding: 0.75rem;
+             min-width: 48px;
+             min-height: 48px;
+             touch-action: manipulation;
+             -webkit-appearance: none;
+             -moz-appearance: none;
+             appearance: none;
+             cursor: pointer;
+             visibility: visible;
+             opacity: 1;
+           }
+
+           .header-content {
+             position: relative;
+             z-index: 1001;
+           }
+
+           .header-actions {
+             position: relative;
+             z-index: 1002;
+           }
         }
       `}</style>
     </motion.header>
