@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ShoppingCart, User, Menu as MenuIcon, X, Calendar, Camera, Users, LogIn } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 // Import logo
 import logoImage from '../../logooo.jpg';
@@ -13,6 +15,15 @@ const Header: React.FC = () => {
   const { cart } = useCart();
 
   const cartItemsCount = cart.reduce((total, item) => total + item.quantity, 0);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    });
+  }, []);
 
   const navItems = [
     { path: '/', label: 'Home', icon: null },
@@ -30,9 +41,9 @@ const Header: React.FC = () => {
       transition={{ duration: 0.6 }}
       className="header"
     >
-      <div className="container">
-        <div className="header-content">
-          <Link to="/" className="logo">
+      <div className="container" data-aos="fade-down" data-aos-duration="800">
+        <div className="header-content" data-aos="fade-in" data-aos-delay="100">
+          <Link to="/" className="logo" data-aos="fade-right">
             <div className="logo-container">
               <img 
                 src={logoImage}
@@ -48,13 +59,15 @@ const Header: React.FC = () => {
             </div>
           </Link>
 
-          <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
-            {navItems.map((item) => (
+          <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`} data-aos="fade-left">
+            {navItems.map((item, index) => (
               <Link
                 key={item.path}
                 to={item.path}
                 className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
                 onClick={() => setIsMenuOpen(false)}
+                data-aos="fade-up"
+                data-aos-delay={`${100 + index * 50}`}
               >
                 {item.icon && <span className="nav-icon">{item.icon}</span>}
                 {item.label}
@@ -62,7 +75,7 @@ const Header: React.FC = () => {
             ))}
           </nav>
 
-          <div className="header-actions">
+          <div className="header-actions" data-aos="fade-left" data-aos-delay="200">
             <Link to="/cart" className="cart-button">
               <motion.div
                 whileHover={{ scale: 1.1 }}
@@ -96,6 +109,8 @@ const Header: React.FC = () => {
               className="menu-toggle"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
+              data-aos="zoom-in"
+              data-aos-delay="300"
             >
               {isMenuOpen ? <X size={24} /> : <MenuIcon size={24} />}
             </button>
@@ -108,11 +123,10 @@ const Header: React.FC = () => {
           position: sticky;
           top: 0;
           z-index: 1000;
-          background: linear-gradient(135deg,rgb(29, 29, 163) 50%, #808080 100%);
-          backdrop-filter: blur(10px);
-          border-bottom: 1px solid rgba(0, 0, 128, 0.3);
+          background: linear-gradient(135deg, #F5DEB3 0%, #D2B48C 100%);
+          border-bottom: 1px solid rgba(210, 180, 140, 0.3);
           padding: 1rem 0;
-          box-shadow: 0 2px 10px rgba(0, 0, 128, 0.2);
+          box-shadow: 0 2px 10px rgba(210, 180, 140, 0.2);
         }
 
         .header-content {
@@ -148,9 +162,9 @@ const Header: React.FC = () => {
         .logo-text {
           font-size: 1.5rem;
           font-weight: 700;
-          color: #F5DEB3;
+          color: #000000;
           margin: 0;
-          text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+          text-shadow: none;
         }
 
         .nav {
@@ -164,7 +178,7 @@ const Header: React.FC = () => {
           align-items: center;
           gap: 0.5rem;
           text-decoration: none;
-          color: #FFFFFF;
+          color: #000000;
           font-weight: 500;
           padding: 0.5rem 1rem;
           border-radius: var(--border-radius);
@@ -174,7 +188,7 @@ const Header: React.FC = () => {
         .nav-link:hover,
         .nav-link.active {
           background: rgba(255, 255, 255, 0.2);
-          color: #FFFFFF;
+          color: #000000;
           transform: translateY(-1px);
         }
 
@@ -187,7 +201,7 @@ const Header: React.FC = () => {
         .cart-button,
         .profile-button {
           text-decoration: none;
-          color: #FFFFFF;
+          color: #000000;
         }
 
         .cart-icon-container,
@@ -208,8 +222,8 @@ const Header: React.FC = () => {
           position: absolute;
           top: -5px;
           right: -5px;
-          background: linear-gradient(135deg, #4169E1 0%, #1E90FF 100%);
-          color: #FFFFFF;
+          background: linear-gradient(135deg, #D2B48C 0%, #F5DEB3 100%);
+          color: #8B4513;
           border-radius: 50%;
           width: 20px;
           height: 20px;
@@ -218,7 +232,7 @@ const Header: React.FC = () => {
           justify-content: center;
           font-size: 0.75rem;
           font-weight: bold;
-          box-shadow: 0 2px 8px rgba(65, 105, 225, 0.3);
+          box-shadow: 0 2px 8px rgba(210, 180, 140, 0.3);
         }
 
         .menu-toggle {
@@ -229,7 +243,7 @@ const Header: React.FC = () => {
           padding: 0.5rem;
           border-radius: 50%;
           transition: var(--transition);
-          color: #FFFFFF;
+          color: #000000;
         }
 
         .menu-toggle:hover {
@@ -243,10 +257,10 @@ const Header: React.FC = () => {
             top: 70px;
             left: 0;
             right: 0;
-            background: linear-gradient(135deg, #000080 0%, #808080 100%);
+            background: linear-gradient(135deg, #D2B48C 0%, #F5DEB3 100%);
             flex-direction: column;
             padding: 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 128, 0.3);
+            box-shadow: 0 4px 20px rgba(210, 180, 140, 0.3);
             transform: translateX(-100%);
             transition: transform 0.3s ease;
           }
