@@ -132,7 +132,7 @@ const TypeText: React.FC<TypeTextProps> = ({
         clearTimeout(timeoutRef.current);
       }
     };
-  }, [isVisible, hasStarted, initialDelay]);
+  }, [isVisible, hasStarted, initialDelay, type]);
 
 
 
