@@ -16,6 +16,15 @@ const Header: React.FC = () => {
 
   const cartItemsCount = cart.reduce((total, item) => total + item.quantity, 0);
 
+  // Close menu when clicking outside
+  const handleMenuToggle = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleMenuClose = () => {
+    setIsMenuOpen(false);
+  };
+
   useEffect(() => {
     AOS.init({
       duration: 800,
@@ -24,6 +33,25 @@ const Header: React.FC = () => {
       mirror: false
     });
   }, []);
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+    };
+  }, [isMenuOpen]);
 
   const navItems = [
     { path: '/', label: 'Home', icon: null },
@@ -59,13 +87,23 @@ const Header: React.FC = () => {
             </div>
           </Link>
 
+          {/* Mobile menu overlay */}
+          {isMenuOpen && (
+            <div 
+              className="menu-overlay" 
+              onClick={handleMenuClose}
+              onTouchStart={handleMenuClose}
+            />
+          )}
+
           <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`} data-aos="fade-left">
             {navItems.map((item, index) => (
               <Link
                 key={item.path}
                 to={item.path}
                 className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
-                onClick={() => setIsMenuOpen(false)}
+                onClick={handleMenuClose}
+                onTouchStart={handleMenuClose}
                 data-aos="fade-up"
                 data-aos-delay={`${100 + index * 50}`}
               >
@@ -107,7 +145,8 @@ const Header: React.FC = () => {
 
             <button
               className="menu-toggle"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              onClick={handleMenuToggle}
+              onTouchStart={handleMenuToggle}
               aria-label="Toggle menu"
               data-aos="zoom-in"
               data-aos-delay="300"
@@ -251,26 +290,62 @@ const Header: React.FC = () => {
           transform: scale(1.1);
         }
 
+        .menu-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(0, 0, 0, 0.5);
+          z-index: 9998;
+          display: block;
+        }
+
         @media (max-width: 768px) {
           .nav {
             position: fixed;
-            top: 70px;
+            top: 0;
             left: 0;
             right: 0;
+            bottom: 0;
             background: linear-gradient(135deg, #D2B48C 0%, #F5DEB3 100%);
             flex-direction: column;
+            justify-content: center;
+            align-items: center;
             padding: 2rem;
             box-shadow: 0 4px 20px rgba(210, 180, 140, 0.3);
             transform: translateX(-100%);
             transition: transform 0.3s ease;
+            z-index: 9999;
+            overflow: hidden;
+            -webkit-overflow-scrolling: touch;
           }
 
           .nav-open {
             transform: translateX(0);
           }
 
+          .nav-link {
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+            margin: 0.5rem 0;
+            width: 100%;
+            text-align: center;
+            border-radius: 8px;
+          }
+
           .menu-toggle {
             display: block;
+            z-index: 10000;
+            position: relative;
+          }
+
+          .header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
           }
         }
       `}</style>
