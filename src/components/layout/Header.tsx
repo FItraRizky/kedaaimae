@@ -315,7 +315,6 @@ const Header: React.FC = () => {
           color: #000000;
           min-width: 48px;
           min-height: 48px;
-          display: flex;
           align-items: center;
           justify-content: center;
           -webkit-tap-highlight-color: transparent;
@@ -405,10 +404,12 @@ const Header: React.FC = () => {
           }
 
           .menu-toggle {
-             display: block !important;
+             display: flex !important;
+             align-items: center;
+             justify-content: center;
              z-index: 10000;
              position: relative;
-             background: rgba(255, 255, 255, 0.2);
+             background: rgba(255, 255, 255, 0.3);
              border: 2px solid rgba(0, 0, 0, 0.1);
              border-radius: 8px;
              padding: 0.75rem;
@@ -421,6 +422,12 @@ const Header: React.FC = () => {
              cursor: pointer;
              visibility: visible;
              opacity: 1;
+             transition: all 0.2s ease;
+           }
+
+           .menu-toggle:active {
+             transform: scale(0.95);
+             background: rgba(255, 255, 255, 0.5);
            }
 
            .header-content {
